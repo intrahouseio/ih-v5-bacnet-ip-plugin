@@ -1,0 +1,26 @@
+{
+  "grid": [
+    { "id": "p2", "xs": 12, "class": "main", "table": "devhard" },
+    { "id": "p9", "xs": 12, "class": "main", "table": "onechannelrtTable"}
+  ],
+  "spacing": 4,
+
+  "p2": [
+    { "prop": "title", "title": "Object Name", "type": "input" },  
+    { "prop": "devpropname", "title": "Свойство для привязки", "type": "input" },
+    { "prop": "address", "title": "Object IP address", "type": "text" },  
+    { "prop": "chan", "title": "Object ID", "type": "text" },  
+    { "prop": "objectType", "title": "Object type", "type": "text" },
+    { "prop": "dataType", "title": "Data type", "type": "text" },
+
+  
+    { "prop": "r", "title": "Чтение", "type": "cb" },
+    { "prop": "calc", "title": "$Devhard_Calc", "type": "input", "hide": "!data.p2.r" },
+    { "prop": "w", "title": "Запись", "type": "cb" },
+    { "prop": "calc_out", "title": "$Devhard_Calc_Out", "type": "input", "hide": "!data.p2.w" }
+  ],
+  "p9": [
+    { "prop": "realtime_chan_str", "title": "Канал", "type": "text" },
+    { "prop": "realtime_dev_str", "title": "Устройство", "type": "text" }
+  ]
+}

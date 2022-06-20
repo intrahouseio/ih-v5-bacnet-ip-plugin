@@ -1,0 +1,15 @@
+{
+  "name": "bacnetip",
+  "module": "index.js",
+  "single": 1,
+  "restartOnChannelsChange": 0,
+
+  "channel_folder_popup": {
+    "add":[
+      { "id": "folder", "title": "$NewFolder" }
+    ],
+    "browse":{"variant":"subtree"},
+    "copypaste":false,
+    "delete":true
+  }
+}

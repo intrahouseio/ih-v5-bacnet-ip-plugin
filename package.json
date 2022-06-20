@@ -1,0 +1,14 @@
+{
+  "name": "bacnetip",
+  "version": "5.5.0",
+  "description": "Bacnet/IP client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Intra LLC",
+  "license": "MIT",
+  "dependencies": {
+    "node-bacnet": "^0.2.4"
+  }
+}

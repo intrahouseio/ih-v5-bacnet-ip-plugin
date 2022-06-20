@@ -1,0 +1,6 @@
+{
+    "id":"bacnetip",
+    "description":"Bacnet/IP client",
+    "cross":true,
+	"version":"5.5.0"
+}
