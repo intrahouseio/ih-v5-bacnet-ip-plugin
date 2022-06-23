@@ -34,18 +34,22 @@ module.exports = async function (plugin) {
   async function monitor(channels) {
       for (i =0; i<channels.length; i++) {
         if (channels[i].r) {
-          let result = await client.unsubscribe(channels[i].address, JSON.parse(channels[i].chan));
+          let result = await client.unsubscribe(channels[i].address, JSON.parse(channels[i].chan).objectId);
         plugin.log('UnsubscribeCOV' + result, 2);
-        result = await client.subscribe(channels[i].address, JSON.parse(channels[i].chan));
+        result = await client.subscribe(channels[i].address, JSON.parse(channels[i].chan).objectId);
         plugin.log('SubscribeCOV' + result, 2);
         }    
       }
       
       bacnetClient.on('covNotifyUnconfirmed', (data) => {
         //plugin.log('Received COV: ' + JSON.stringify(data, null, 2));
-        if (channelsValue[JSON.stringify(data.payload.monitoredObjectId)] != data.payload.values[0].value[0].value) {
-          channelsValue[JSON.stringify(data.payload.monitoredObjectId)] = data.payload.values[0].value[0].value;
-          plugin.sendData([{ id: JSON.stringify(data.payload.monitoredObjectId), value: data.payload.values[0].value[0].value}]);
+        let id = {};
+        id.objectId = data.payload.monitoredObjectId; 
+        id.address = data.header.sender.address;  
+        if (channelsValue[JSON.stringify(id)] != data.payload.values[0].value[0].value) {
+          channelsValue[JSON.stringify(id)] = data.payload.values[0].value[0].value;
+
+          plugin.sendData([{ id: JSON.stringify(id), value: data.payload.values[0].value[0].value}]);
         } 
       });
   }
