@@ -1,5 +1,5 @@
 /**
- * s7plc index.js
+ * bacnet/ip index.js
  */
 const util = require('util');
 
@@ -13,7 +13,7 @@ const app = require('./app');
     const pluginapi = opt && opt.pluginapi ? opt.pluginapi : 'ih-plugin-api';
     plugin = require(pluginapi+'/index.js')();
     
-    plugin.log('Plugin opcua client has started.', 0);
+    plugin.log('Plugin bacnet/ip client has started.', 0);
     
     // Получить параметры 
     plugin.params.data = await plugin.params.get();

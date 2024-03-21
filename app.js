@@ -12,7 +12,11 @@ const client = require("client");
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 module.exports = async function (plugin) {
-  const bacnetClient = new Bacnet({apduTimeout: plugin.params.data.apduTimeout});
+  const bacnetClient = new Bacnet({
+    port: plugin.params.data.port || 47808,                          
+    broadcastAddress: plugin.params.data.broadcastAddress  || '255.255.255.255',
+    apduTimeout: plugin.params.data.apduTimeout
+  });
   client.init(bacnetClient);
   const scanner = new Scanner(plugin);
   const channelsValue = {};

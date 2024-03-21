@@ -8,6 +8,18 @@
   "spacing": 10,
   "p1": [
     {
+      "prop": "port",
+      "title": "Port",
+      "type": "number",
+      "default": 47808
+    },
+    {
+      "prop": "broadcastAddress",
+      "title": "Broadcast Address",
+      "type": "input",
+      "default": "255.255.255.255"
+    },
+    {
       "prop": "apduTimeout",
       "title": "Apdu Timeout",
       "type": "number",
